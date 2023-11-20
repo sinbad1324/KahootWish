@@ -1,0 +1,186 @@
+@use "mixin";
+@use "Functions";
+$HW:110%;
+$HH:80px;
+$TCo:black;
+$BGCHADE:#ffffff;
+$BGCBTN:rgb(153, 214, 63);
+$hoverAuto:true;
+$BroderColor:black;
+$BorderNO1NavBtn:solid $BroderColor 2px;
+$leftNav: translateX(85%);
+$nav-Noraml:translateX(200%);
+$top-Nav:-80px;
+header{
+    width: 110%;
+    height: $HH;
+    border: solid 1px $BGCHADE;
+    background-color: $BGCHADE;
+    position: relative;
+    right: 2%;
+    top: calc($HH / -9);
+    h1{
+        margin-left:2% ;
+        max-width: 10%;
+        z-index: 2;
+        margin-right: auto;
+        @include mixin.Hover(1.1)
+    } 
+    img{
+        margin-left:2% ;
+        @include mixin.Hover(1.1)
+    }
+}
+.headerWS{
+    height: $HH *2;
+}
+
+
+nav{    
+  width: 75%;
+  height: 100%;
+position: absolute;
+  left: 20%;
+  top: 0;
+ @include mixin.SpaceLineFlex();
+  a{
+    display: inline-block;
+    padding: 10px 10px ;
+    text-decoration: none;
+    color:$TCo;
+    overflow: hidden;
+    /*
+    @include mixin.HoverAnim1 ;
+    */
+    font-size: 18px;    
+        &:not(.Play ,.exploreC , .pppp12):hover {
+            font-size: 20px;    
+            text-decoration: underline;
+        }
+  }
+}
+
+.navsh{
+     height: 50%;
+}
+.Play {
+    $TCo:#ffffff;
+    $BorderNO1NavBtn:solid rgba(30, 255, 0, 0) 0px;
+    @include mixin.btnWithColor($BGCBTN , $TCo , $BorderNO1NavBtn);
+}
+
+.exploreC {
+    $TCo:#ffffff;
+    $BGCBTN:#ffb300;
+    $BorderNO1NavBtn:solid rgba(30, 255, 0, 0) 0px;
+    @include mixin.btnWithColor($BGCBTN , $TCo , $BorderNO1NavBtn);
+}
+.creategame{
+    @include mixin.FlexCR;
+    img{
+        margin-left: 6px;
+        width: 30px;
+        height: 30px;
+        @include mixin.Hover(1.3);
+    }
+}
+.sing{
+    $BGCBTN:#ffffff;
+    background-color: $BGCBTN;
+    $BroderColor:rgb(146, 236, 61);
+    $BorderNO1NavBtn: solid $BroderColor 2px;
+    @include mixin.btnWithColor($BGCBTN , $TCo , $BorderNO1NavBtn);
+}
+
+.Profile{
+    width: 45px;
+    height: 45px; 
+    background-color: #ff9e01;   
+    border-radius: 50%;
+    @include mixin.Hover(1.2);
+   img{
+    width: 80%;
+    height: 80%;
+    position: relative;
+    left: 10% ;
+    top: 3px;
+   }
+   a{
+    position: relative;
+    bottom: 10%;
+    left: -20%;
+    color: #515050;
+    font-size: 17px;
+   }
+  
+  // @include mixin.MaxW(800px){
+   // &{
+                
+    //}
+  // };
+   
+}
+
+.Nav-OP-active{
+   animation:  Nav_Animation1 2s linear forwards ;
+}
+.Nav-clo-active{
+    animation:  Nav_Animation2 2s linear forwards;
+ }
+@include mixin.MaxW(1000px){
+ 
+    nav{
+       background-color: #ffffff;
+       height: 100vh;
+       width: 40%;
+       overflow: hidden;
+       display: flex;
+       justify-content:space-evenly;
+       align-items:self-start;
+       flex-direction: column;
+       position: inherit ;
+       transform: $nav-Noraml;
+     //  left: $nav-Noraml;
+       top: $top-Nav;
+       z-index: 20;
+       a , div{
+        margin: 20px 3%;
+       }
+
+    }
+    .btn-navOp{
+        position: absolute;
+        border-radius: 5px;
+        border: #898585 solid 2px;
+        top: 25%;
+        left: 80%;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        @include mixin.FlexCR(center , center);
+        div{
+            height: 35px;
+            width: 45px;
+          
+            @include mixin.FlexCR(space-around , center);
+
+            flex-direction: column;
+            span{
+                width: 90%;
+                height: 2px;
+                background-color: #898585;
+            }
+        }
+   
+    }
+
+}
+
+@keyframes Nav_Animation1{
+    from{transform: $nav-Noraml;}
+    to {transform : $leftNav;}
+}
+@keyframes Nav_Animation2{
+    from{transform: $leftNav;}
+    to {transform : $nav-Noraml;}
+}

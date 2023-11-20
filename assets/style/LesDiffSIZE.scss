@@ -1,0 +1,111 @@
+@use "mixin";
+@use "Functions";
+$NS:30vw;
+$minS:270px;
+$maxS:500px;
+$w60:700px;
+@include mixin.MaxW(680px){
+    .Explique{       
+        div{
+            font-size: .9em; 
+        }
+    }
+    @include mixin.pubbga(220px ,85%);
+
+}
+
+@include mixin.MaxW(635px){
+    $NS:70vw;
+    @include mixin.TEXTP($w60 , $NS , 80%);
+    .icon-reseau{
+        width:70%;
+        left: 0%;
+    }
+
+    footer{
+        height: 500px !important;
+    }
+
+    .infoFooter{
+        font-size: .8em;
+        width: 20% !important;
+        height: 300px;
+    @include mixin.CenterW(20%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    }
+    
+}
+@include mixin.MaxW(451px){
+    @include mixin.TEXTP(800px , 75vw , 90%);
+    header{
+        h1{
+            font-size: 27px;
+        }
+        .LogoDevineMoi{
+            left: 150px !important;
+            width: 50px !important;
+            height: 50px !important;
+            top: -60px !important ;
+        }
+        .btn-navOp{
+            left: 75%  ;
+        }
+    }
+  
+    @include mixin.pubbga(150px ,70%);
+
+    .icon-reseau{
+        width:80%;
+        left: 10%;
+    }
+
+
+}
+
+@include mixin.MaxW(320px){
+    @include mixin.TEXTP(650px , 90vw , 80%);
+
+    .Explique{       
+        div{
+            font-size: .8em; 
+        }
+        img{
+           left: 0;
+        }
+    }
+
+    aside{
+        a{
+            top:20px;
+        }
+    }
+    .icon-reseau{
+        width:90%;
+        left: 0%;
+    }
+}
+
+@include mixin.MaxH(750px){
+    footer{
+        top:120vh;
+    }
+}
+
+@include mixin.MaxH(660px){
+    footer{
+        top:140vh;
+    }
+}
+
+@include mixin.MaxH(570px){
+    footer{
+        top:170vh;
+    }
+}
+
+@include mixin.MaxH(470px){
+    footer{
+        top:200vh;
+    }
+}
